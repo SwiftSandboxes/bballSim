@@ -3,7 +3,7 @@ using System;
 using FluentMigrator.Runner;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace commish.databasescripts
+namespace commish.databaseMigrations
 {
     public static class DbMigratorRunner
     {

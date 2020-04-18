@@ -1,6 +1,6 @@
 using FluentMigrator;
  
-namespace commish.databasescripts
+namespace commish.databaseMigrations
 {
     [Migration(2020041601)]
     public class M001_script : ForwardOnlyMigration

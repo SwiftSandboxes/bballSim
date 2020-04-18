@@ -12,7 +12,7 @@ using Microsoft.Extensions.Logging;
 
 using FluentMigrator.Runner;
 using FluentMigrator.Runner.Initialization;
-using commish.databasescripts;
+using commish.databaseMigrations;
 
 namespace commish
 {
