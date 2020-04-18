@@ -10,6 +10,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
+using FluentMigrator.Runner;
+using FluentMigrator.Runner.Initialization;
+using commish.databasescripts;
+
 namespace commish
 {
     public class Startup
@@ -17,6 +21,15 @@ namespace commish
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            var serviceProvider = DbMigratorRunner.CreateServices();
+
+            // Put the database update into a scope to ensure
+            // that all resources will be disposed.
+            using (var scope = serviceProvider.CreateScope())
+            {
+                DbMigratorRunner.UpdateDatabase(scope.ServiceProvider);
+            }
         }
 
         public IConfiguration Configuration { get; }
@@ -44,5 +57,7 @@ namespace commish
                 endpoints.MapControllers();
             });
         }
+
+ 
     }
 }
