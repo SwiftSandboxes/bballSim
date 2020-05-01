@@ -5,13 +5,13 @@ using bballsim.commish.Models;
 
 namespace bballsim.commish.Services
 {
-    public interface ITeamOverride
+    public interface ITeamOverrider
     {
         Team getById(int id);
         List<Team> getTeams();
     }
 
-    public class TeamOverride : ITeamOverride
+    public class TeamOverride : ITeamOverrider
     {
         private Dictionary<int, Team> teamsCache = new Dictionary<int, Team>();
 
