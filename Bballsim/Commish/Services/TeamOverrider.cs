@@ -1,9 +1,9 @@
 using System.Linq;
 using System.Xml.Linq;
 using System.Collections.Generic;
-using bballsim.commish.Models;
+using Bballsim.Commish.Models;
 
-namespace bballsim.commish.Services
+namespace Bballsim.Commish.Services
 {
     public interface ITeamOverrider
     {

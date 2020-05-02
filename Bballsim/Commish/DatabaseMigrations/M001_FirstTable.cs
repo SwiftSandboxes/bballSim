@@ -1,6 +1,6 @@
 using FluentMigrator;
  
-namespace commish.databaseMigrations
+namespace Bballsim.Commish.DatabaseMigrations
 {
     [Migration(2020041601)]
     public class M001_script : ForwardOnlyMigration

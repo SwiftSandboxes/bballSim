@@ -1,4 +1,4 @@
-namespace bballsim.commish.Models
+namespace Bballsim.Commish.Models
 {
     public class Team
     {

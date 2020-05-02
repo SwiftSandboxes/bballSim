@@ -12,10 +12,10 @@ using Microsoft.Extensions.Logging;
 
 using FluentMigrator.Runner;
 using FluentMigrator.Runner.Initialization;
-using commish.databaseMigrations;
-using bballsim.commish.Services;
+using Bballsim.Commish.DatabaseMigrations;
+using Bballsim.Commish.Services;
 
-namespace commish
+namespace Bballsim
 {
     public class Startup
     {

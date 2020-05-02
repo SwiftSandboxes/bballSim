@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using bballsim.commish.Services;
+using Bballsim.Commish.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -18,11 +18,7 @@ namespace commish.Controllers
         };
 
         private readonly ILogger<TeamController> _logger;
-            private readonly ITeamOverrider _teamOverrider;
-    // public EmployeeController(IDataService dataService)
-    // {
-    //   _dataService = dataService;
-    // }
+        private readonly ITeamOverrider _teamOverrider;
 
         public TeamController(ILogger<TeamController> logger, ITeamOverrider teamOverrider)
         {
@@ -33,7 +29,7 @@ namespace commish.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-           return Ok(_teamOverrider.getTeams());
+            return Ok(_teamOverrider.getTeams());
         }
     }
 }
