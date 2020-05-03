@@ -11,11 +11,11 @@ namespace Bballsim.Commish.Services
         List<Team> getTeams();
     }
 
-    public class TeamOverride : ITeamOverrider
+    public class TeamOverrider : ITeamOverrider
     {
         private Dictionary<int, Team> teamsCache = new Dictionary<int, Team>();
 
-        public TeamOverride()
+        public TeamOverrider()
         {
             Team aTeam = new Team();
             aTeam.Id = 1;

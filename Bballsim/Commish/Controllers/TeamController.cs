@@ -6,7 +6,7 @@ using Bballsim.Commish.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace commish.Controllers
+namespace Bballsim.Commish.Controllers
 {
     [ApiController]
     [Route("[controller]")]
