@@ -7,10 +7,10 @@ namespace Bballsim.Commish.DatabaseAccess.DatabaseMigrations
     {
         public override void Up()
         {
-            Create.Table("Teams")
+            Create.Table("TEAMS")
                 .WithColumn("Id").AsString().PrimaryKey()
-                .WithColumn("Name").AsString()
-                .WithColumn("Owner").AsString();
+                .WithColumn("TeamName").AsString()
+                .WithColumn("OwnerId").AsString();
         }
     }
 }

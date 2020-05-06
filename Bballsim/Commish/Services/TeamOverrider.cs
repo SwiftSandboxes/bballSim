@@ -31,7 +31,6 @@ namespace Bballsim.Commish.Services
             aTeam.Id = 1;
             aTeam.TeamName = "ATeam";
             aTeam.OwnerId = "Hannibal";
-            aTeam.LeagueId = "Eighties";
             teamsCache.TryAdd(aTeam.Id, aTeam);
         }
 
