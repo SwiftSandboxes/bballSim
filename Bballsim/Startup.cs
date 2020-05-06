@@ -12,9 +12,10 @@ using Microsoft.Extensions.Logging;
 
 using FluentMigrator.Runner;
 using FluentMigrator.Runner.Initialization;
-using commish.databaseMigrations;
+using Bballsim.Commish.DatabaseMigrations;
+using Bballsim.Commish.Services;
 
-namespace commish
+namespace Bballsim
 {
     public class Startup
     {
@@ -37,6 +38,7 @@ namespace commish
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<ITeamOverrider, TeamOverrider>();
             services.AddControllers();
         }
 
