@@ -3,7 +3,7 @@ using System;
 using FluentMigrator.Runner;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Bballsim.Commish.DatabaseMigrations
+namespace Bballsim.Commish.DatabaseAccess.DatabaseMigrations
 {
     public static class DbMigratorRunner
     {

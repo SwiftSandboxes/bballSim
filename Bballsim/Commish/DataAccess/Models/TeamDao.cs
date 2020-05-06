@@ -1,6 +1,6 @@
-namespace Bballsim.Commish.Models
+namespace Bballsim.Commish.DataAccess.Models
 {
-    public class Team
+    public class TeamDao
     {
         public int Id { get; set; }
         public string TeamName { get; set; }

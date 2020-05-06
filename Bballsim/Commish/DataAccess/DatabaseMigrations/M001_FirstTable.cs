@@ -1,8 +1,8 @@
 using FluentMigrator;
  
-namespace Bballsim.Commish.DatabaseMigrations
+namespace Bballsim.Commish.DatabaseAccess.DatabaseMigrations
 {
-    [Migration(2020041601)]
+    [Migration(001)]
     public class M001_script : ForwardOnlyMigration
     {
         public override void Up()
