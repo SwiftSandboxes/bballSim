@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Bballsim.Commish.DatabaseAccess.DatabaseMigrations;
 using Bballsim.Commish.Services;
 using Bballsim.Commish.DatabaseAccess;
+using System;
 
 namespace Bballsim
 {
@@ -37,7 +38,7 @@ namespace Bballsim
 
             // services.Add(new ServiceDescriptor(typeof(CommishDbContext), new CommishDbContext(Configuration.GetConnectionString("DefaultConnection")))); 
 
-            var connectionString = Configuration.GetConnectionString("CommishDatabase");
+            var connectionString = Environment.GetEnvironmentVariable("COMMISH_DATABASE");
 
             services.AddDbContext<CommishDbContext>(options => 
             options.UseMySQL(connectionString));
