@@ -1,19 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 
-using FluentMigrator.Runner;
-using FluentMigrator.Runner.Initialization;
-using Bballsim.Commish.DatabaseMigrations;
+using Bballsim.Commish.DatabaseAccess.DatabaseMigrations;
 using Bballsim.Commish.Services;
+using Bballsim.Commish.DatabaseAccess;
+using System;
 
 namespace Bballsim
 {
@@ -40,6 +35,13 @@ namespace Bballsim
         {
             services.AddTransient<ITeamOverrider, TeamOverrider>();
             services.AddControllers();
+
+            // services.Add(new ServiceDescriptor(typeof(CommishDbContext), new CommishDbContext(Configuration.GetConnectionString("DefaultConnection")))); 
+
+            var connectionString = Environment.GetEnvironmentVariable("COMMISH_DATABASE");
+
+            services.AddDbContext<CommishDbContext>(options => 
+            options.UseMySQL(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +62,6 @@ namespace Bballsim
             });
         }
 
- 
+
     }
 }

@@ -3,7 +3,7 @@ using System;
 using FluentMigrator.Runner;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Bballsim.Commish.DatabaseMigrations
+namespace Bballsim.Commish.DatabaseAccess.DatabaseMigrations
 {
     public static class DbMigratorRunner
     {
@@ -19,7 +19,7 @@ namespace Bballsim.Commish.DatabaseMigrations
                     // Add SQLite support to FluentMigrator
                     .AddMySql5()
                     // Set the connection string
-                    .WithGlobalConnectionString("Server=127.0.0.1;Port=3306;Database=commishsql;Uid=notso;Pwd=enough123;")
+                    .WithGlobalConnectionString(Environment.GetEnvironmentVariable("COMMISH_DATABASE"))
                     // Define the assembly containing the migrations
                     .ScanIn(typeof(M001_script).Assembly).For.Migrations())
                 // Enable logging to console in the FluentMigrator way
