@@ -7,31 +7,32 @@ using System;
 
 namespace Bballsim.Commish.Services
 {
-    public interface ITeamOverrider
+    public interface ITeamService
     {
         TeamDao getById(int id);
         List<TeamDao> getTeams();
+        void saveEntity(TeamDao teamDao);
     }
 
-    public class TeamOverrider : ITeamOverrider
+    public class TeamService : ITeamService
     {
         private Dictionary<int, TeamDao> teamsCache = new Dictionary<int, TeamDao>();
         private readonly CommishDbContext _dbContext;
 
-        public TeamOverrider(CommishDbContext dbcontext)
+        public TeamService(CommishDbContext dbcontext)
         {
             _dbContext = dbcontext ?? throw new ArgumentNullException(nameof(dbcontext));
         }
 
 
-        // TODO: Remove once mocking framework in place. Temporary for Unit Testing
-        public TeamOverrider()
+        // // TODO: Remove once mocking framework in place. Temporary for Unit Testing
+        public TeamService()
         {
             TeamDao aTeam = new TeamDao();
-            aTeam.Id = 1;
+            aTeam.Id = "1";
             aTeam.TeamName = "ATeam";
             aTeam.OwnerId = "Hannibal";
-            teamsCache.TryAdd(aTeam.Id, aTeam);
+            teamsCache.TryAdd(1, aTeam);
         }
 
         public List<TeamDao> getTeams()
@@ -41,6 +42,12 @@ namespace Bballsim.Commish.Services
         public TeamDao getById(int id)
         {
             return teamsCache[id];
+        }
+
+        public void saveEntity(TeamDao teamDao)
+        {
+            _dbContext.Add(teamDao);
+            _dbContext.SaveChanges();
         }
     }
 }

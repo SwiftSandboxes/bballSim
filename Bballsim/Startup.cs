@@ -33,15 +33,13 @@ namespace Bballsim
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<ITeamOverrider, TeamOverrider>();
             services.AddControllers();
-
-            // services.Add(new ServiceDescriptor(typeof(CommishDbContext), new CommishDbContext(Configuration.GetConnectionString("DefaultConnection")))); 
 
             var connectionString = Environment.GetEnvironmentVariable("COMMISH_DATABASE");
 
-            services.AddDbContext<CommishDbContext>(options => 
-            options.UseMySQL(connectionString));
+            services.AddDbContext<CommishDbContext>(options => options.UseMySQL(connectionString));
+            
+            services.AddTransient<ITeamService, TeamService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -3,14 +3,14 @@ using Xunit;
 
 namespace Commish.Tests.Services
 {
-    public class TeamOverriderTest
+    public class TeamDataManagerTest
     {
-        private readonly ITeamOverrider _teamOverrider;
+        private readonly ITeamService _teamOverrider;
 
-        public TeamOverriderTest()
+        public TeamDataManagerTest()
         {
             // TODO: Add mocking framework and inject mock
-            _teamOverrider = new TeamOverrider();
+            _teamOverrider = new TeamService();
         }
 
         [Fact]
